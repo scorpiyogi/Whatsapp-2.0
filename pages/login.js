@@ -1,14 +1,13 @@
 import Head from "next/head"
 import styled from "styled-components"
-import { auth } from "../firebase"
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+
+import { auth, provider } from "../firebase"
 
 import { Button } from "@mui/material"
 
 function Login() {
   const signIn = () => {
-    const provider = new GoogleAuthProvider()
-    signInWithPopup(auth, provider).catch(alert)
+    auth.signInWithPopup(provider).catch(alert)
   }
 
   return (

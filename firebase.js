@@ -1,12 +1,5 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp, getApps, getApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"
-import { getAuth } from "firebase/auth"
+import firebase from "firebase"
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA6be36PROuA3N1Hs5BQZAEp98xNTjnx40",
   authDomain: "whatsapp-2-3ca60.firebaseapp.com",
@@ -16,12 +9,9 @@ const firebaseConfig = {
   appId: "1:423249495830:web:e00e6d867833fe8715b237"
 }
 
-// Initialize Firebase
-export const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
-export const db = getFirestore(app)
+const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
 
-
-export const auth = getAuth(app)
-
-
-export default { app, db, auth }
+const db = app.firestore()
+const auth = app.auth()
+const provider = new firebase.auth.GoogleAuthProvider()
+export { db, auth, provider }
