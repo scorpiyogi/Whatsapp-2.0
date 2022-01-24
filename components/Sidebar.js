@@ -8,7 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import { auth, db } from "../firebase"
 import { useCollection } from "react-firebase-hooks/firestore"
 import Chat from "../components/Chat"
-import * as firestore from "firebase/firestore"
+
 
 function Sidebar() {
   const [user] = useAuthState(auth)
@@ -51,7 +51,7 @@ function Sidebar() {
       </Search>
       <SidebarButton onClick={createChat}> Start a new chat </SidebarButton>
       {/*List of chats*/}
-      {chatsSnapshot?.docs.map((chat) => (
+      {chatsSnapshot?.docs.map(chat => (
         <Chat key={chat.id} id={chat.id} users={chat.data().users} />
       ))}
     </Container>
@@ -60,7 +60,20 @@ function Sidebar() {
 
 export default Sidebar
 
-const Container = styled.div``
+const Container = styled.div`
+  flex: 0.45;
+  border-right: 1px solid whitesmoke;
+  height: 100vh;
+  min-width: 300px;
+  max-width: 350px;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+`
 
 const Search = styled.div`
   display: flex;
@@ -72,7 +85,7 @@ const SidebarButton = styled(Button)`
   width: 100%;
   &&& {
     border-top: 1px solid whitesmoke;
-    border-bottom: 1ps solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
   }
 `
 
@@ -97,8 +110,10 @@ const Header = styled.div`
 
 const UserAvatar = styled(Avatar)`
   cursor: pointer;
+  transition: 0.3s;
   :hover {
     opacity: 0.9;
+    transition: 0.3s;
   }
 `
 

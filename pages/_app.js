@@ -5,7 +5,6 @@ import firebase from "firebase"
 import { auth, db } from "../firebase"
 import Loading from "../components/Loading"
 import { useEffect } from "react"
-
 import * as firestore from "firebase/firestore"
 
 function MyApp({ Component, pageProps }) {
