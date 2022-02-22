@@ -1,2 +1,10 @@
 # Whatsapp-2.0
-That's a whatsapp clone i build by using NEXT.JS
+ I made this Whatsapp Clone using :- 
+ Next.js
+ Prisma
+ React
+ Typescript
+ Chakra UI
+ Postgres
+ Web Audio
+ 
